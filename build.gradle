@@ -1,0 +1,32 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+
+repositories
+        {
+            mavenCentral()
+            maven
+                    {
+                        url 'http://trialsharedev.immunetolerance.org:8081/artifactory/libs-release-local'
+                    }
+        }
+
+dependencies
+        {
+            compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.5'
+            compile 'com.googlecode.json-simple:json-simple:1.1.1'
+            compile(group: 'org.labkey.labkey-client-api', name: 'labkey-client-api', version: '15.1')
+            compile 'org.apache.httpcomponents:httpclient:4.3.6'
+            compile group: 'joda-time', name: 'joda-time', version: '2.3'
+            compile 'commons-logging:commons-logging:1.1.1'
+            compile 'org.apache.httpcomponents:httpclient:4.3.6'
+
+        }
+sourceSets
+        {
+            main.java.srcDir "src"
+        }
+jar
+        {
+            manifest.attributes "Main-Class": "org.immunetolerance.biocat.querycat.Main"
+        }
+
